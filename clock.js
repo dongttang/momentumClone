@@ -15,8 +15,6 @@ function timeHandler() {
   ${pad(hour, 2)}
   : ${pad(minute, 2)}
   : ${pad(second, 2)}`;
-  // :${pad(second, 2)}
-  // :${pad(millisecond, 3)}`;
 }
 
 function init() {
