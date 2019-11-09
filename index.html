@@ -1,17 +1,30 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="index.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap"
-      rel="stylesheet"
-    />
-    <title>Toy!</title>
-  </head>
-  <body>
-    <div class="js-clock css-clock">
-      <h1></h1>
-    </div>
-    <script src="clock.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Condensed&display=swap" />
+  <link rel="icon" href="icon.png"/>
+  <title>Toy!</title>
+</head>
+
+<body>
+  <div class="js-clock css-clock">
+    <h1></h1>
+  </div>
+  <form class="js-greetingForm css-greetingForm">
+    <input type="text" id="js-nameInput" class="js-nameInput css-nameInput" placeholder="What is your name?"></input>
+    <text class="js-greetingMessage css-greetingMessage css-greetingViewToggle"></text>
+  </form>
+  <div class="js-todoContainer css-todoContainer">
+    <form class="js-todoForm css-todoForm">
+      <input type="text" id="js-todoInput" class="js-todoInput css-todoInput" placeholder="Enter your task"></input>
+    </form>
+    <ul class="js-todoList css-todoList"></ul>
+  </div>
+  <script src="clock.js"></script>
+  <script src="greeting.js"></script>
+  <script src="todo.js"></script>
+</body>
+
 </html>
