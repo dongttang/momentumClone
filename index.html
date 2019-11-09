@@ -9,15 +9,16 @@
 </head>
 
 <body>
+  <span class="js-weather css-weather"></span>
   <div class="js-clock css-clock">
     <h1></h1>
   </div>
-  <form class="js-greetingForm css-greetingForm">
+  <form class="js-greetingForm css-greetingForm" autocomplete="off">
     <input type="text" id="js-nameInput" class="js-nameInput css-nameInput" placeholder="What is your name?"></input>
     <text class="js-greetingMessage css-greetingMessage css-greetingViewToggle"></text>
   </form>
   <div class="js-todoContainer css-todoContainer">
-    <form class="js-todoForm css-todoForm">
+    <form class="js-todoForm css-todoForm" autocomplete="off">
       <input type="text" id="js-todoInput" class="js-todoInput css-todoInput" placeholder="Enter your task"></input>
     </form>
     <ul class="js-todoList css-todoList"></ul>
@@ -25,6 +26,8 @@
   <script src="clock.js"></script>
   <script src="greeting.js"></script>
   <script src="todo.js"></script>
+  <script src="background.js"></script>
+  <script src="weather.js"></script>
 </body>
 
 </html>

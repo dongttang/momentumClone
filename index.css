@@ -1,19 +1,27 @@
 body {
   font-family: "Saira Condensed", sans-serif;
+  color: whitesmoke;
   text-align: center;
+  padding: 0;
+  background-size: 100% 100%;
+
+  display: grid;
 }
 .css-clock {
-  padding-top: 10%;
+  padding-top: 1%;
   align-self: center;
+  font-size: 40px;
 }
 .css-nameInput {
   align-content: center;
   display: inline-block;
   /* border: none; */
   background: transparent;
+  font-size: 40px;
 }
 .css-greetingForm {
   display: inline-block;
+  font-size: 40px;
 }
 .css-greetingViewToggle {
   display: none;
@@ -21,11 +29,13 @@ body {
 .css-todoInput {
   /* border: none; */
   background: transparent;
+  font-size: 30px;
 }
 .css-todoList {
   list-style-type: none;
   display: inline-block;
   padding-left: 0;
+  font-size: 25px;
 }
 .css-todoListLi {
   display: grid;
@@ -44,4 +54,11 @@ body {
 }
 .css-todoList_completeFlag {
   text-decoration-line: line-through;
+}
+.css-weather {
+  justify-self: right;
+}
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
 }
