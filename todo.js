@@ -10,13 +10,17 @@ function addTodoElement(event) {
   todoInput.value = "";
   const liObject = liObjectBuilder(todoContent);
   TODOS.push(liObject);
-  localStorage.setItem("todoList", JSON.stringify(TODOS));
-  syncData(todoList, TODOS);
+  syncLocalStorageData("todoList");
+  // localStorage.setItem("todoList", JSON.stringify(TODOS));
+  syncHtmlTableData(todoList, TODOS);
 }
 
 function liObjectBuilder(todoContent) {
+  const date = new Date();
   return {
-    id: TODOS.length + 1,
+    id: parseInt(
+      `${date.getFullYear()}${date.getHours()}${date.getMinutes()}${date.getMilliseconds()}`
+    ),
     todoContent: todoContent,
     isCompleted: false
   };
@@ -40,27 +44,32 @@ function paintLiTagOnHTML(todoList, liObject) {
 
   content.innerText = liObject.todoContent;
   content.classList.add("css-todoList_content");
-  content.addEventListener("click", toggleComplete);
 }
 
-function delContent() {
-  const targetNodeId = event.parentNode;
-  console.log(targetNodeId);
-  // const list = event.target.parentNode;
-
-  todoList.removeChild();
-  syncData(todoList, "todoList");
+function delContent(event) {
+  const target = event.target.parentNode;
+  const targetId = parseInt(target.id);
+  for (let i = 0; i < TODOS.length; i++) {
+    if (TODOS[i].id === targetId) {
+      TODOS.splice(i, 1);
+      break;
+    }
+  }
+  syncLocalStorageData("todoList");
+  syncHtmlTableData("todoList");
 }
 
-function toggleComplete() {
-  console.log(event.target.parentNode);
-  // TODO : 태그 속성에 isCompleted 토글
-  // TODO : is completed 값 바꾸고 css에 시각이미지 표현하기
-  syncData(todoList, "todoList");
+function syncLocalStorageData(localStorageName) {
+  if (TODOS.length > 0) {
+    const jsonString = JSON.stringify(TODOS);
+    localStorage.setItem(localStorageName, jsonString);
+  } else if (TODOS.length === 0) {
+    localStorage.removeItem(localStorageName);
+  }
 }
 
-function syncData(localStorageName) {
-  localStorageString = localStorage.getItem("todoList");
+function syncHtmlTableData(localStorageName) {
+  localStorageString = localStorage.getItem(localStorageName);
   if (localStorageString !== null) {
     TODOS = JSON.parse(localStorageString);
   }
@@ -73,9 +82,9 @@ function syncData(localStorageName) {
 }
 
 function init() {
-  syncData("todoList");
+  syncHtmlTableData("todoList");
   todoForm.addEventListener("submit", addTodoElement);
-  // todoList.addEventListener("onchange", syncData);
+  // todoList.addEventListener("onchange", syncHtmlTableData);
 }
 
 init();
