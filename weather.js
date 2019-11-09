@@ -12,7 +12,7 @@ function loadWeather() {
     if (curLocation.latitude === null || curLocation.longitude === null) {
         requestCurLocation();
     }
-    if (curLocation.latitude !== null && curLocation.longitude !== null) {
+    else if (curLocation.latitude !== null && curLocation.longitude !== null) {
         getWeatherInfomation(curLocation.latitude, curLocation.longitude);
     }
 }
@@ -47,6 +47,7 @@ function getGeoSuccess(position) {
     curLocation.latitude = position.coords.latitude;
     curLocation.longitude = position.coords.longitude;
     localStorage.setItem("curLocation", JSON.stringify(curLocation))
+    getWeatherInfomation(curLocation.latitude, curLocation.longitude);
 }
 
 function geoError(errorCallback) {
