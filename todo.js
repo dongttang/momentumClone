@@ -48,7 +48,7 @@ function delContent() {
   console.log(targetNodeId);
   // const list = event.target.parentNode;
 
-  list.removeChild(content);
+  todoList.removeChild();
   syncData(todoList, "todoList");
 }
 
